@@ -1,38 +1,198 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: "Noto Sans", sans-serif;
+}
+button {
+  border: none;
+  background-color: #573b8a;
+  color: aliceblue;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  margin: 2px;
+}
+.feedFilters {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  /* border: 2px solid blue; */
+}
+.feedFilters div {
+  width: 20%;
+  background-color: rgb(202, 202, 202);
+  /* border: 2px solid yellow; */
+  flex: 1 1 auto;
+  margin: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.feedFilter {
+  background-color: rgb(175, 175, 175);
+  margin-bottom: 2px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 3px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.feedUserImage {
+  width: 80px;
+  height: 80px;
+  /* border: 2px solid green; */
+  border-radius: 50%;
+  margin: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*Profile*/
+.profileContainer {
+  margin: auto;
+  padding: 10px;
+  width: 30%;
+  border: 2px solid green;
+  /* display: block; */
+}
+.profileBtn {
+  width: 300px;
+  height: 40px;
+  /* border: 2px solid green; */
+  overflow: hidden;
+  margin: 30px 0px;
+}
+.logoutBtn {
+  background-color: red;
+  float: right;
+  margin: 30px;
+  margin-left: auto;
+}
+.validationErrors {
+  /* border: 1px solid red; */
+  color: red;
+  font-size: small;
+}
+.inputSection {
+  /* border: 2px solid yellow; */
+  margin-top: 10px;
+  height: 80px;
+}
+
+.feedContainer {
+  width: 80%;
+  /* border: 2px solid green; */
+  margin: auto;
+}
+
+.newSectionContainer {
+  height: 700px;
+  overflow: scroll;
+}
+
+.newsSection {
+  /* border: 2px solid red; */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: 15px;
+  height: 100px;
+}
+.feedImage {
+  /* border: 2px solid blue; */
+  width: 120px;
+  height: 100px;
+  border: none;
+  display: block;
+  border-radius: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.postTime {
+  color: rgb(102, 101, 101);
+  font-size: small;
+  margin-left: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.searchBar {
+  margin: auto;
+  width: 90%;
+  border: none;
+  display: block;
+  background-color: rgb(199, 170, 199);
+  color: black;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  height: 40px;
+}
+
+.formContainer {
+  display: block;
+  border: 2px solid grey;
+  width: 50%;
+  margin: auto;
+  margin-top: 150px;
+  height: 350px;
+}
+
+.loginInputSection {
+  width: 50%;
+  background-color: rgb(172, 182, 182);
+  display: block;
+  margin: auto;
+  margin-top: 25px;
+  height: 40px;
+  border: none;
+  border-radius: 2px;
+}
+
+#loginBtn {
+  width: 30%;
+  height: 40px;
+  background-color: blue;
+  color: antiquewhite;
+  font-size: larger;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+#feedBtn {
+  width: 30%;
+  height: 40px;
+  background-color: blue;
+  color: antiquewhite;
+  font-size: larger;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+#registerFeed {
+  width: 50%;
+  height: 40px;
+  background-color: blue;
+  color: antiquewhite;
+  font-size: larger;
+  font-weight: bold;
+  border-radius: 5px;
+}
+#registerSave {
+  width: 50%;
+  height: 40px;
+  background-color: blue;
+  color: antiquewhite;
+  font-size: larger;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 800px) {
+  .loginInputSection {
+    width: 90%;
   }
-  to {
-    transform: rotate(360deg);
+  #loginBtn {
+    width: 70%;
+  }
+  #feedBtn {
+    width: 70%;
+  }
+  .profileContainer {
+    width: 90%;
   }
 }
