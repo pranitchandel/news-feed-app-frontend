@@ -15,6 +15,7 @@ import axios from "axios";
 
 import { logout } from "../../ActionCreators/loginActionData";
 import { getfilteredNews } from "../../ActionCreators/newsActionData";
+import Loading from "../Loading/Loading";
 
 const Feed = ({
   getfilteredNews,
@@ -72,6 +73,8 @@ const Feed = ({
       [event.target.name]: event.target.checked,
     });
   };
+
+  const rootUrl = "https://news-feed-app-backend.onrender.com";
   const style = {
     position: "absolute",
     top: "50%",
@@ -85,9 +88,8 @@ const Feed = ({
   };
 
   useEffect(async () => {
-    console.log("1");
     await axios
-      .get("/api/news/all")
+      .get(`${rootUrl}/api/news/all`)
       .then((res) => setAllNews(res.data.news))
       .catch((err) => console.log(err));
   }, []);
@@ -210,6 +212,7 @@ const Feed = ({
 
   return (
     <div style={{ display: "flex", width: "100%" }}>
+      {/* <Loading /> */}
       <div className="feedContainer">
         <div>
           {isAuthenticated ? (
@@ -249,14 +252,14 @@ const Feed = ({
             </div>
           )}
         </div>
-        <input
-          type="text"
-          value={search}
-          onChange={handleSearch}
-          placeholder="Search"
-          className="searchBar"
-        />
         <div className="feedFilters">
+          <input
+            type="text"
+            value={search}
+            onChange={handleSearch}
+            placeholder="Search"
+            className="searchBar"
+          />
           <div>
             <Button onClick={handleSortByOpen}>Sort by</Button>
             <Modal
@@ -383,9 +386,9 @@ const Feed = ({
                 </div>
                 <div
                   style={{
-                    overflow: "scroll",
+                    overflow: "auto",
                     width: "100%",
-                    marginLeft: 15,
+                    height: "115px",
                   }}
                 >
                   <div>
@@ -398,14 +401,27 @@ const Feed = ({
                         : `${minutesDifference} minutes ago`}
                     </span>
                   </div>
-                  <div style={{ fontSize: "small", fontWeight: "bold" }}>
+                  <div
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: "normal",
+                      width: "100%",
+                    }}
+                  >
                     {news.content}
                   </div>
                   <div
                     style={{
-                      color: "blue",
+                      color: "black",
                       fontSize: "small",
-                      bottom: 0,
+                      position: "absolute",
+                      bottom: "1.5%",
+                      width: "100%",
+                      fontWeight: "bold",
+                      backgroundColor: "rgba(255, 255, 255)",
+                      letterSpacing: "0.3px",
+                      borderRadius: "3px",
+                      padding: "2px",
                     }}
                   >
                     by {news.author}
