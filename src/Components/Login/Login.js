@@ -39,10 +39,12 @@ const Login = ({ errorMessage, login, clearError }) => {
             fontSize: "xx-large",
             fontFamily: '"Noto Sans", sans-serif',
             textAlign: "center",
+            color: "whitesmoke",
           }}
         >
           Login
         </div>
+        <label htmlFor="email">Email</label>
         <input
           type="text"
           name="email"
@@ -52,6 +54,7 @@ const Login = ({ errorMessage, login, clearError }) => {
           required
           className="loginInputSection"
         />
+        <label htmlFor="password">Password</label>
         <input
           type="password"
           name="password"

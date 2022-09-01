@@ -6,6 +6,8 @@ body {
   width: 100%;
   margin: 0;
   font-family: "Noto Sans", sans-serif;
+  background-color: white;
+  color: rgb(0, 0, 0);
 }
 button {
   border: none;
@@ -17,16 +19,16 @@ button {
   margin: 2px;
 }
 .feedFilters {
-  width: 100%;
+  width: 80%;
+  margin: auto;
   display: flex;
-  flex-direction: row;
-  /* border: 2px solid blue; */
+  justify-content: flex-end;
+  /* border: 2px solid green; */
 }
-.feedFilters div {
-  width: 20%;
+.feedFilters Button {
+  width: 150px;
   background-color: rgb(202, 202, 202);
   /* border: 2px solid yellow; */
-  flex: 1 1 auto;
   margin: 20px;
   text-align: center;
 }
@@ -37,6 +39,10 @@ button {
   cursor: pointer;
   padding: 5px;
   border-radius: 3px;
+}
+
+label {
+  color: black;
 }
 
 .feedUserImage {
@@ -51,9 +57,16 @@ button {
 .profileContainer {
   margin: auto;
   padding: 10px;
-  width: 30%;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
   border: 2px solid green;
   /* display: block; */
+}
+
+.profileContainer label {
+  width: 100px;
+  color: #080710;
 }
 .profileBtn {
   width: 300px;
@@ -62,6 +75,10 @@ button {
   overflow: hidden;
   margin: 30px 0px;
 }
+/* .genderInput: {
+  border: 2px solid green;
+} */
+
 .logoutBtn {
   background-color: red;
   float: right;
@@ -77,32 +94,70 @@ button {
   /* border: 2px solid yellow; */
   margin-top: 10px;
   height: 80px;
+  width: 45%;
 }
 
 .feedContainer {
-  width: 80%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.13);
   /* border: 2px solid green; */
-  margin: auto;
 }
 
 .newSectionContainer {
-  height: 700px;
-  overflow: scroll;
+  margin: 0 auto;
+  padding-left: 50px;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
+.newsSection:hover {
+  transform: scale();
+}
+.newsSection:hover::after {
+  content: "";
+  background-color: rgb(0, 0, 0, 0.5);
+  width: 100%;
+  height: 4px;
+  display: block;
+  margin: 25px auto;
+  animation: newSectionHover 400ms 1;
+}
 .newsSection {
   /* border: 2px solid red; */
-  display: flex;
-  margin-top: 15px;
-  height: 100px;
+  color: black;
+  width: 23%;
+  margin: 5px;
+  height: 350px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+@keyframes newSectionHover {
+  100% {
+    width: 100%;
+  }
+  75% {
+    width: 75%;
+  }
+  50% {
+    width: 50%;
+  }
+  25% {
+    width: 25%;
+  }
+  0% {
+    width: 0%;
+  }
 }
 .feedImage {
   /* border: 2px solid blue; */
-  width: 120px;
-  height: 100px;
+  width: 100%;
+  height: 200px;
   border: none;
   display: block;
   border-radius: 10px;
+  margin-bottom: 5px;
 }
 
 .postTime {
@@ -112,60 +167,110 @@ button {
 }
 
 .searchBar {
-  margin: auto;
-  width: 90%;
+  width: 150px;
+  margin: 20px;
   border: none;
-  display: block;
   background-color: rgb(199, 170, 199);
   color: black;
   border-radius: 5px;
-  margin-bottom: 5px;
   height: 40px;
 }
 
+.searchBar:focus {
+  width: 150px;
+  animation: searchBar 0.3s 1 forwards;
+}
+
+@keyframes searchBar {
+  100% {
+    width: 300px;
+  }
+  80% {
+    width: 250px;
+  }
+  60% {
+    width: 200px;
+  }
+  40% {
+    width: 150px;
+  }
+  20% {
+    width: 150px;
+  }
+  0% {
+    width: 150px;
+  }
+}
+form * {
+  letter-spacing: 0.5px;
+  border: none;
+  outline: none;
+}
 .formContainer {
   display: block;
-  border: 2px solid grey;
-  width: 50%;
-  margin: auto;
-  margin-top: 150px;
-  height: 350px;
+  background-color: rgb(0, 0, 0, 0.75);
+  position: absolute;
+  width: 25%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 450px;
+  border-radius: 10px;
+}
+
+form label {
+  margin-top: 30px;
+  margin-left: 30px;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: large;
+}
+
+::placeholder {
+  color: rgb(0, 0, 0, 0.35);
 }
 
 .loginInputSection {
-  width: 50%;
-  background-color: rgb(172, 182, 182);
+  width: 80%;
+  background-color: whitesmoke;
+  border-radius: 3px;
+  color: black;
   display: block;
-  margin: auto;
-  margin-top: 25px;
+  margin: 8px auto;
+  padding-left: 10px;
   height: 40px;
-  border: none;
-  border-radius: 2px;
 }
 
 #loginBtn {
-  width: 30%;
+  width: 80%;
   height: 40px;
-  background-color: blue;
-  color: antiquewhite;
+  background-color: #ffffff;
+  color: #080710;
+  padding-left: 0px;
+  margin: 50px auto 20px auto;
   font-size: larger;
   font-weight: bold;
   border-radius: 5px;
 }
 
 #feedBtn {
-  width: 30%;
+  width: 80%;
   height: 40px;
-  background-color: blue;
-  color: antiquewhite;
+  background-color: #ffffff;
+  color: #080710;
   font-size: larger;
+  margin: 20px auto;
+  padding-left: 0px;
   font-weight: bold;
   border-radius: 5px;
 }
+/* #feedBtn:hover {
+  background-color: ;
+} */
 
 #registerFeed {
   width: 50%;
-  height: 40px;
+  height: 35px;
   background-color: blue;
   color: antiquewhite;
   font-size: larger;
@@ -181,10 +286,51 @@ button {
   font-weight: bold;
   border-radius: 5px;
 }
+.loadingContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(65, 67, 68, 0.8);
+  z-index: 1;
+}
 
+.loadingClass {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  font-size: larger;
+  justify-content: center;
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid black;
+  align-items: center;
+  translate: transform(-50%, -50%);
+  animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+  100% {
+    transform: rotate(360deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  0% {
+    transform: rotate(0deg);
+  }
+}
 @media screen and (max-width: 800px) {
   .loginInputSection {
-    width: 90%;
+    width: 80%;
   }
   #loginBtn {
     width: 70%;
